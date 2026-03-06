@@ -1,6 +1,5 @@
 # This workflow was generated using the GitHub Actions Workflow Generator for MATLAB.
 # See https://matlab-actions.github.io/workflow-generator
-
 name: MATLAB
 
 on:
