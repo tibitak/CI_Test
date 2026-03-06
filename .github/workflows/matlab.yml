@@ -10,6 +10,9 @@ on:
     branches: [master]
   workflow_dispatch: {}
 
+env:
+  MLM_LICENSE_TOKEN: ${{ secrets.MyToken }}
+  
 jobs:
   build:
     runs-on: ubuntu-latest
