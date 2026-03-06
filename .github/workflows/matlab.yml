@@ -9,9 +9,6 @@ on:
     branches: [master]
   workflow_dispatch: {}
 
-env:
-  MATLAB_LICENSE: ${{ secrets.MYTOKEN }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,9 +28,13 @@ jobs:
 
 
       # Run MATLAB scripts, functions, and statements.
-      - name: Run WL_Script
-        run: |
-          matlab -batch "WL_Script"
+- name: Restore license and run MATLAB (use -c)
+  run: |
+    echo "$MATLAB_LICENSE" > /tmp/license.lic
+    chmod 600 /tmp/license.lic
+    matlab -c /tmp/license.lic -batch "WL_Script"
+  env:
+    MATLAB_LICENSE: ${{ secrets.MATLAB_LICENSE }}
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
       - name: Run MATLAB tests
