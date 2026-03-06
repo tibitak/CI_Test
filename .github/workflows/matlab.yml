@@ -29,10 +29,9 @@ jobs:
 
 
       # Run MATLAB scripts, functions, and statements.
-      - name: Run MATLAB command
-        uses: matlab-actions/run-command@v2
-        with:
-          command: results = WL_Script
+      - name: Run WL_Script
+        run: |
+          matlab -batch "WL_Script"
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
       - name: Run MATLAB tests
