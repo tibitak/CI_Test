@@ -28,13 +28,15 @@ jobs:
 
 
       # Run MATLAB scripts, functions, and statements.
-- name: Restore license and run MATLAB (use -c)
+- name: Restore license and run MATLAB (use MLM_LICENSE_FILE)
   run: |
     echo "$MATLAB_LICENSE" > /tmp/license.lic
     chmod 600 /tmp/license.lic
-    matlab -c /tmp/license.lic -batch "WL_Script"
+    export MLM_LICENSE_FILE="/tmp/license.lic"
+    matlab -batch "WL_Script"
   env:
     MATLAB_LICENSE: ${{ secrets.MATLAB_LICENSE }}
+
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
       - name: Run MATLAB tests
