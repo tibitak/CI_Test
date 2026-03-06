@@ -11,8 +11,8 @@ on:
   workflow_dispatch: {}
 
 env:
-  MLM_LICENSE_TOKEN: ${{ secrets.MyToken }}
-  
+  MLM_LICENSE_TOKEN: ${{ secrets.MYTOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
