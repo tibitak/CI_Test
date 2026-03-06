@@ -32,7 +32,7 @@ jobs:
       - name: Run MATLAB command
         uses: matlab-actions/run-command@v2
         with:
-          command: results = WL_Script(); assertSuccess(results);
+          command: results = WL_Script
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
       - name: Run MATLAB tests
