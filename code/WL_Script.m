@@ -1,7 +1,7 @@
 function result=WL_Script()
     result = true;
 
-    makePPTCompilable();
+    makePPTCompilable(); 
     % Import the PPT API
     import mlreportgen.ppt.*;
     
