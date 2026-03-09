@@ -8,6 +8,8 @@ on:
   pull_request:
     branches: [master]
   workflow_dispatch: {}
+env:
+  MLM_LICENSE_TOKEN: ${{ secrets.MYTOKEN }}
 
 jobs:
   build:
@@ -28,14 +30,11 @@ jobs:
 
 
       # Run MATLAB scripts, functions, and statements.
-- name: Restore license and run MATLAB (use MLM_LICENSE_FILE)
-  run: |
-    echo "$MATLAB_LICENSE" > /tmp/license.lic
-    chmod 600 /tmp/license.lic
-    export MLM_LICENSE_FILE="/tmp/license.lic"
-    matlab -batch "WL_Script"
-  env:
-    MATLAB_LICENSE: ${{ secrets.MATLAB_LICENSE }}
+      - name: Run script
+        uses: matlab-actions/run-command@v2
+        with:
+          command: "WL_Script"
+
 
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
