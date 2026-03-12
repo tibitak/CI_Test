@@ -33,6 +33,7 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
+                  fprintf('original MATLAB PWD = %s\n', pwd);
                   repo = getenv('GITHUB_WORKSPACE');
                   fprintf('GITHUB_WORKSPACE = %s\n', repo);
                   cd(repo);
