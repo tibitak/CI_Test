@@ -33,9 +33,14 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-                addpath(pwd)               % put repo on MATLAB path
-                what                        % (optional) list files MATLAB can see
-                testscript                  % call script, or
+                cd "${GITHUB_WORKSPACE}"   % ensure you're in repo root
+                  fprintf('GITHUB_WORKSPACE: %s\n', getenv('GITHUB_WORKSPACE'))
+                  fprintf('MATLAB PWD: %s\n', pwd)
+                  disp('Contents of current folder:')
+                  ls
+                  disp('MATLAB-relevant files:')
+                  what                
+                  testscript                  % call script, or
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
       - name: Run MATLAB tests
