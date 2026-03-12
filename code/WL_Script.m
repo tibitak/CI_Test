@@ -9,7 +9,7 @@ function result=WL_Script()
     data.WorkLoad_FilePath_ToStore = "C:\Users\tibor.takacs\SciEngineer Kft\Engineering - Engineering-Leadership - Dokumentumok\Engineering-Leadership\Reporting\Workload";
     data.WorkinHours_Path_ToStore = "C:\Users\tibor.takacs\SciEngineer Kft\Engineering - Dokumentumok\General\03 Engineering Documents\02 Organization Documents\Reporting\AE_Dashboards_sources\AE_WorkingHours.xlsx";
     
-    data.StartWeek_ToStore = datetime("2026-01-06")
+    data.StartWeek_ToStore = datetime("2026-01-06");
     
     % Get the start week and year from the StartWeek parameter
     StartWeek = week(data.StartWeek_ToStore);
@@ -18,7 +18,7 @@ function result=WL_Script()
     % Perfom the analyzis only if the input parameters exis
     if isfile(data.WorkinHours_Path_ToStore) && exist(data.WorkLoad_FilePath_ToStore, 'dir') == 7
         % Read Names and Working Hours from Working Hours excel
-        WorkingHours_Names = readtable(data.WorkinHours_Path_ToStore, 'Sheet', 'Names');
+        WorkingHours_Names = readtable(data.WorkinHours_Path_ToStore, 'Sheet', 'Names')
         WorkingHours_List = readtable(data.WorkinHours_Path_ToStore, 'Sheet', 'WorkingHours');
         
         % Arrange the working hours for each week for each
