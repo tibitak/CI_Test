@@ -1,12 +1,6 @@
 function result=WL_Script()
     result = true;
 
-    % Import the PPT API
-    import mlreportgen.ppt.*;
-    
-    makePPTCompilable();
-
-    
     % Store the current parameters to a structure
     data.WorkLoad_FilePath_ToStore = "C:\Users\tibor.takacs\SciEngineer Kft\Engineering - Engineering-Leadership - Dokumentumok\Engineering-Leadership\Reporting\Workload";
     data.WorkinHours_Path_ToStore = "C:\Users\tibor.takacs\SciEngineer Kft\Engineering - Dokumentumok\General\03 Engineering Documents\02 Organization Documents\Reporting\AE_Dashboards_sources\AE_WorkingHours.xlsx";
@@ -285,40 +279,40 @@ function result=WL_Script()
         hold off
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-        % Add a slide (layout name depends on your template)
-        slide = add(ppt, 'Title and Content');
-    
-        currentLoad = WeelyMainTasks(WeelyMainTasks.CalendarWeek == string(currentCalendarWeek),:);
-        currentLoad.Load = string(currentLoad.Load); % Needed to be able to set the font size for this column as well
-        
-        % Create a Table object and add it to the slide
-        tbl = Table(currentLoad);
-        tbl.Width = '900pt';
-        tbl.X = '0.1in';
-        tbl.Y = '0.1in';
-        tbl.StyleName = "Medium Style 2 - Accent 1"; 
-        
-        % Create the format and set the properties
-        tblStyle = TableStyleOptions(); 
-        tblStyle.FirstRow = true; 
-        tblStyle.LastRow = false; 
-        tblStyle.FirstColumn = true; 
-        tblStyle.LastColumn = false; 
-        tblStyle.BandedRows = true; 
-        tblStyle.BandedColumns = false; 
-    
-        tbl.entry(1,1).Style = {ColWidth("100pt")};
-        tbl.entry(1,2).Style = {ColWidth("150pt")};
-        tbl.entry(1,3).Style = {ColWidth("550pt")};
-        tbl.entry(1,4).Style = {ColWidth("100pt")};
-        
-        % Apply the formatting to the table
-        tbl.Style = [tblStyle, FontSize("16pt")];
-        
-        add(slide, tbl);
-    
-        % Close and save the presentation
-        close(ppt);                
+        % % Add a slide (layout name depends on your template)
+        % slide = add(ppt, 'Title and Content');
+        % 
+        % currentLoad = WeelyMainTasks(WeelyMainTasks.CalendarWeek == string(currentCalendarWeek),:);
+        % currentLoad.Load = string(currentLoad.Load); % Needed to be able to set the font size for this column as well
+        % 
+        % % Create a Table object and add it to the slide
+        % tbl = Table(currentLoad);
+        % tbl.Width = '900pt';
+        % tbl.X = '0.1in';
+        % tbl.Y = '0.1in';
+        % tbl.StyleName = "Medium Style 2 - Accent 1"; 
+        % 
+        % % Create the format and set the properties
+        % tblStyle = TableStyleOptions(); 
+        % tblStyle.FirstRow = true; 
+        % tblStyle.LastRow = false; 
+        % tblStyle.FirstColumn = true; 
+        % tblStyle.LastColumn = false; 
+        % tblStyle.BandedRows = true; 
+        % tblStyle.BandedColumns = false; 
+        % 
+        % tbl.entry(1,1).Style = {ColWidth("100pt")};
+        % tbl.entry(1,2).Style = {ColWidth("150pt")};
+        % tbl.entry(1,3).Style = {ColWidth("550pt")};
+        % tbl.entry(1,4).Style = {ColWidth("100pt")};
+        % 
+        % % Apply the formatting to the table
+        % tbl.Style = [tblStyle, FontSize("16pt")];
+        % 
+        % add(slide, tbl);
+        % 
+        % % Close and save the presentation
+        % close(ppt);                
     
         % Get data and time for the filename
         currentDate = datetime('today');
