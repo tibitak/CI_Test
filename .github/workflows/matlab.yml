@@ -33,13 +33,11 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-                cd "${GITHUB_WORKSPACE}"   % ensure you're in repo root
-                  fprintf('GITHUB_WORKSPACE: %s\n', getenv('GITHUB_WORKSPACE'))
-                  fprintf('MATLAB PWD: %s\n', pwd)
-                  disp('Contents of current folder:')
-                  ls
-                  disp('MATLAB-relevant files:')
-                  what                
+                  repo = getenv('GITHUB_WORKSPACE');
+                  fprintf('GITHUB_WORKSPACE = %s\n', repo);
+                  cd(repo);
+                  fprintf('MATLAB PWD = %s\n', pwd);
+                  ls            
                   testscript                  % call script, or
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
