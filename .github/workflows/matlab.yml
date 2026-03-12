@@ -36,7 +36,7 @@ jobs:
                   repo = getenv('GITHUB_WORKSPACE');
                   fprintf('GITHUB_WORKSPACE = %s\n', repo);
                   cd(repo);
-                  cd('\code');
+                  cd('code');
                   fprintf('MATLAB PWD = %s\n', pwd);
                   ls            
                   testscript                  % call script, or
