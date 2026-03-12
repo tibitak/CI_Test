@@ -1,11 +1,15 @@
 function result=WL_Script()
     result = true;
 
+    % makePPTCompilable();
+    % % Import the PPT API
+    % import mlreportgen.ppt.*;
+    
     % Store the current parameters to a structure
     data.WorkLoad_FilePath_ToStore = "C:\Users\tibor.takacs\SciEngineer Kft\Engineering - Engineering-Leadership - Dokumentumok\Engineering-Leadership\Reporting\Workload";
     data.WorkinHours_Path_ToStore = "C:\Users\tibor.takacs\SciEngineer Kft\Engineering - Dokumentumok\General\03 Engineering Documents\02 Organization Documents\Reporting\AE_Dashboards_sources\AE_WorkingHours.xlsx";
     
-    data.StartWeek_ToStore = datetime("2026-01-06");
+    data.StartWeek_ToStore = datetime("2026-01-06")
     
     % Get the start week and year from the StartWeek parameter
     StartWeek = week(data.StartWeek_ToStore);
