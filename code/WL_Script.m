@@ -1,9 +1,11 @@
 function result=WL_Script()
     result = true;
 
-    makePPTCompilable();
     % Import the PPT API
     import mlreportgen.ppt.*;
+    
+    makePPTCompilable();
+
     
     % Store the current parameters to a structure
     data.WorkLoad_FilePath_ToStore = "C:\Users\tibor.takacs\SciEngineer Kft\Engineering - Engineering-Leadership - Dokumentumok\Engineering-Leadership\Reporting\Workload";
