@@ -33,7 +33,6 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-                cd "${GITHUB_WORKSPACE}"   % ensure current folder is repo root
                 addpath(pwd)               % put repo on MATLAB path
                 what                        % (optional) list files MATLAB can see
                 testscript                  % call script, or
