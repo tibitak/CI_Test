@@ -40,7 +40,7 @@ jobs:
                   cd('code');
                   fprintf('MATLAB PWD = %s\n', pwd);
                   ls            
-                  testscript                  % call script, or
+                  result = WL_Script()                  % call script, or
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
       - name: Run MATLAB tests
